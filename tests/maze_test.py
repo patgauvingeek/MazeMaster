@@ -1,19 +1,13 @@
 '''Maze tests'''
 
-import Maze
-import Test
+import unittest
+from maze_master.maze import Direction
 
-def InvertTest():
-  if Maze.Direction.North.invert() != Maze.Direction.South:
-    return Test.FAIL
-  if Maze.Direction.East.invert() != Maze.Direction.West:
-    return Test.FAIL
-  if Maze.Direction.South.invert() != Maze.Direction.North:
-    return Test.FAIL
-  if Maze.Direction.West.invert() != Maze.Direction.East:
-    return Test.FAIL
-  return Test.PASS
-
-TESTS = [InvertTest]
-
-Test.Execute(TESTS)
+class DirectionTest(unittest.TestCase):
+  ''' Test Direction class features'''
+  def test_invert(self):
+    '''Test the inversion of the direction'''
+    self.assertEqual(Direction.South, Direction.North.invert())
+    self.assertEqual(Direction.West, Direction.East.invert())
+    self.assertEqual(Direction.North, Direction.South.invert())
+    self.assertEqual(Direction.East, Direction.West.invert())
