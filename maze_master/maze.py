@@ -69,22 +69,22 @@ class Maze:
       west_neighbor = None
       if current_tile.position_x > 0:
         west_neighbor = self.tiles[current_tile.position_x-1][current_tile.position_y]
-        if west_neighbor.IsAllBlocked():
+        if west_neighbor.is_all_blocked():
           unvisited_directions.append(Direction.West)
       north_neighbor = None
       if current_tile.position_y > 0:
         north_neighbor = self.tiles[current_tile.position_x][current_tile.position_y-1]
-        if north_neighbor.IsAllBlocked():
+        if north_neighbor.is_all_blocked():
           unvisited_directions.append(Direction.North)
       east_neighbor = None
       if current_tile.position_x < width - 1:
         east_neighbor = self.tiles[current_tile.position_x+1][current_tile.position_y]
-        if east_neighbor.IsAllBlocked():
+        if east_neighbor.is_all_blocked():
           unvisited_directions.append(Direction.East)
       south_neighbor = None
       if current_tile.position_y < depth - 1:
         south_neighbor = self.tiles[current_tile.position_x][current_tile.position_y+1]
-        if south_neighbor.IsAllBlocked():
+        if south_neighbor.is_all_blocked():
           unvisited_directions.append(Direction.South)
 
       # If one or more found
@@ -95,19 +95,19 @@ class Maze:
         direction = random.choice(unvisited_directions)
         # Knock down the wall between it and CurrentCell
         if direction == Direction.West:
-          current_tile.WestLimit.is_blocked = False
+          current_tile.west_limit.is_blocked = False
           # Make the new tile the current tile
           current_tile = west_neighbor
         elif direction == Direction.North:
-          current_tile.NorthLimit.is_blocked = False
+          current_tile.north_limit.is_blocked = False
           # Make the new tile the current tile
           current_tile = north_neighbor
         elif direction == Direction.East:
-          current_tile.EastLimit.is_blocked = False
+          current_tile.east_limit.is_blocked = False
           # Make the new tile the current tile
           current_tile = east_neighbor
         elif direction == Direction.South:
-          current_tile.SouthLimit.is_blocked = False
+          current_tile.south_limit.is_blocked = False
           # Make the new tile the current tile
           current_tile = south_neighbor
         # increment visited tile count
