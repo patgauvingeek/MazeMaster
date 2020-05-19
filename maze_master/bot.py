@@ -15,12 +15,12 @@ if __name__ == '__main__':
     print('Logged in as %s (%s)' % (BOT.user.name, BOT.user.id))
 
   @BOT.command()
-  async def ping():
+  async def ping(ctx):
     '''Response to !ping'''
-    await BOT.say('!pong')
+    await ctx.send('!pong')
 
   @BOT.command()
-  async def go(direction: str):
-    await BOT.say("you are going %s" % direction)
+  async def go(ctx, direction: str):
+    await ctx.send("you are going %s" % direction)
 
   BOT.run(TOKEN)
