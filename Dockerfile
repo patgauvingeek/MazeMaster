@@ -1,7 +1,7 @@
 FROM gorialis/discord.py
 
 RUN pip install --upgrade pip
-COPY src/ /app/
+COPY app/ /app/
 RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "python" ]
