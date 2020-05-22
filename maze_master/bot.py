@@ -12,7 +12,7 @@ if __name__ == '__main__':
   @BOT.event
   async def on_ready():
     '''LOGGED'''
-    print('Logged in as %s (%s)' % (BOT.user.name, BOT.user.id))
+    print(f"Logged in as {BOT.user.name} ({BOT.user.id})")
 
   @BOT.command()
   async def ping(ctx):
@@ -21,6 +21,6 @@ if __name__ == '__main__':
 
   @BOT.command()
   async def go(ctx, direction: str):
-    await ctx.send("you are going %s" % direction)
+    await ctx.send(f"you are going {direction}")
 
   BOT.run(TOKEN)
